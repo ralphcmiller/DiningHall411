@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5de2c1d-797e-4fdd-9365-0b680bc252e5" name="Changes" comment="Initialized setup.py, added 'requests'">
-      <change beforePath="$PROJECT_DIR$/menuScraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/menuScraper.py" afterDir="false" />
+    <list default="true" id="c5de2c1d-797e-4fdd-9365-0b680bc252e5" name="Changes" comment="added selenium to pip dependencies">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +38,8 @@
       <recent name="C:\Users\ralph\Documents\DH411\DH411_Program" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.setup">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.menuScraper">
+    <configuration name="menuScraper" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DH411_Program" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -51,7 +51,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/menuScraper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -60,7 +60,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DH411_Program" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,11 +81,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.setup" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Python.menuScraper" />
+      <item itemvalue="Python.setup" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +102,28 @@
       <option name="project" value="LOCAL" />
       <updated>1645751002747</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Got scraper working with a headless chrome browser, currently able to grab all menu items, need to work on dividing the data by Breakfast, Lunch, Dinner">
+      <created>1645768896666</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645768896666</updated>
+    </task>
+    <task id="LOCAL-00003" summary="headless browser driver">
+      <created>1645768944202</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645768944202</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added selenium to pip dependencies">
+      <created>1645768967621</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1645768967621</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +139,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialized setup.py, added 'requests'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialized setup.py, added 'requests'" />
+    <MESSAGE value="Got scraper working with a headless chrome browser, currently able to grab all menu items, need to work on dividing the data by Breakfast, Lunch, Dinner" />
+    <MESSAGE value="headless browser driver" />
+    <MESSAGE value="added selenium to pip dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="added selenium to pip dependencies" />
   </component>
 </project>
