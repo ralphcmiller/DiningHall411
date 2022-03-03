@@ -4,7 +4,7 @@ pip install twilio
 from twilio.rest import Client
 
 # create our client
-client = Client("AC88238d61ea83edd122eebfbd7a78d69f", "b83d2d055aa640ad51eeab4ad26a1db1")
+client = Client("AC88238d61ea83edd122eebfbd7a78d69f", "AUTH TOKEN HERE")
 
 def sendintro():
     #Send the Text Options
