@@ -9,7 +9,7 @@ def CreateMenuDB():
     connection.commit()
     connection.close()
 
-def AddMenuItem(Date, DiningHall, MealName, Eggs, Fish, GF, Dairy, Peanuts, Soy, TreeNuts, Vegan, Vegetarian, Pork, Beef, Halal, Shellfish):
+def AddMenuItem(Date, DiningHall, MealName, MealTime, Eggs, Fish, GF, Dairy, Peanuts, Soy, TreeNuts, Vegan, Vegetarian, Pork, Beef, Halal, Shellfish):
     #try to connect to database
     #if it doesnt connect create the database
     connection = None
@@ -19,8 +19,8 @@ def AddMenuItem(Date, DiningHall, MealName, Eggs, Fish, GF, Dairy, Peanuts, Soy,
         CreateMenuDB()
 
     #Generate SQL Query and insert Data
-    sql = f''' INSERT INTO DiningHallMenus(Date, DiningHall, MealName, Eggs, Fish, GF, Dairy, Peanuts, Soy, TreeNuts, Vegan, Vegetarian, Pork, Beef, Halal, Shellfish)
-                  VALUES({Date},{DiningHall},{MealName},{Eggs},{Fish},{GF},{Dairy},{Peanuts},{Soy},{TreeNuts},{Vegan},{Vegetarian},{Pork},{Beef},{Halal},{Shellfish}) '''
+    sql = f''' INSERT INTO DiningHallMenus(Date, DiningHall, MealName, MealTime, Eggs, Fish, GF, Dairy, Peanuts, Soy, TreeNuts, Vegan, Vegetarian, Pork, Beef, Halal, Shellfish)
+                  VALUES({Date},{DiningHall},{MealName},{MealTime},{Eggs},{Fish},{GF},{Dairy},{Peanuts},{Soy},{TreeNuts},{Vegan},{Vegetarian},{Pork},{Beef},{Halal},{Shellfish}) '''
     cur = connection.cursor()
     cur.execute(sql)
     connection.commit()
