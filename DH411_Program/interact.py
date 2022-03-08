@@ -1,4 +1,5 @@
 # Proof of concept for the dining hall 411 text program
+from dbsetup import CreateMenuDB, addMenuItem, findMenuItem
 
 print("Welcome to Dining Hall 411!")
 
