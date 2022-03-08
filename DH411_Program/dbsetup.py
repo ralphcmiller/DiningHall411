@@ -11,11 +11,9 @@ def createMenuDB():
 def addMenuItem(Date, DiningHall, MealName, MealTime):
     #try to connect to database
     #if it doesnt connect create the database
-    connection = None
-    try:
-        connection = sqlite3.connect('DHmenus.db')
-    except:
-        createMenuDB()
+
+    createMenuDB()
+    connection = sqlite3.connect('DHmenus.db')
 
     #Generate SQL Query and insert Data
     sql = f''' INSERT INTO DiningHallMenus(Date, DiningHall, MealName, MealTime)

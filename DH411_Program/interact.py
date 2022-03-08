@@ -1,5 +1,5 @@
 # Proof of concept for the dining hall 411 text program
-from dbsetup import CreateMenuDB, addMenuItem, findMenuItem
+from dbsetup import createMenuDB, addMenuItem, findMenuItem
 
 print("Welcome to Dining Hall 411!")
 
@@ -41,12 +41,12 @@ query = findMenuItem(location, date, food)
 #print the meal time (lunch, dinner, etc) followed by the food name.
 if food:
     for i in query:
-        print("{} is at {} on {}".format(i[0],i[1],i[2])
+        print("{} is at {} on {}".format(i[0],i[1],i[2]))
 else:
     temp = query[0]
     temp = temp[1]
-    print("The menu for the {} location is:".format(temp)
+    print("The menu for the {} location is:".format(temp))
     for i in query:
-        print("{}: {}".format(i[3], i[2])
+        print("{}: {}".format(i[3], i[2]))
 
 
