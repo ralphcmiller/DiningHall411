@@ -1,6 +1,6 @@
 import sqlite3
 
-def CreateMenuDB():
+def createMenuDB():
     connection = sqlite3.connect('DHmenus.db')
     cursor = connection.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS DiningHallMenus
@@ -8,14 +8,14 @@ def CreateMenuDB():
     connection.commit()
     connection.close()
 
-def AddMenuItem(Date, DiningHall, MealName, MealTime):
+def addMenuItem(Date, DiningHall, MealName, MealTime):
     #try to connect to database
     #if it doesnt connect create the database
     connection = None
     try:
         connection = sqlite3.connect('DHmenus.db')
     except:
-        CreateMenuDB()
+        createMenuDB()
 
     #Generate SQL Query and insert Data
     sql = f''' INSERT INTO DiningHallMenus(Date, DiningHall, MealName, MealTime)

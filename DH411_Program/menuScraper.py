@@ -5,6 +5,7 @@ Created 2/24/2022
 import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from dbsetup import CreateMenuDB, addMenuItem, findMenuItem
 
 ## Uses headless browser to grab HTML of specific DH menu ##
 driver = webdriver.Chrome()
@@ -23,3 +24,25 @@ for meal in menuTable:                                      # For each item in t
     meal.string = re.sub(r"[\n][\W]+[^\w]", "\n", text)
 print(meal.text)                                            # print out menu items
 
+#split by newline to get each line
+arr = meal.txt.split("\n")
+
+#parse the list line by line and add to database
+mealtime = ""
+for i in arr:
+    #move past "Nutrition Calculator" stuff and headers
+    if i == "Nutrition Calculator" or "--" in i:
+        continue
+
+    #get the meal time (bfast, lunch, etc)
+    if i == "Breakfast":
+        mealtime = "Breakfast"
+    if i == "Lunch":
+        mealtime = "Lunch"
+    if i == "Dinner":
+        mealtime = "Dinner"
+    if i == "Late Night":
+        mealtime = "Late Night"
+
+    #if at this point, add to the database
+    addMenuItem("1/1/2022", "college910", i, mealtime)
