@@ -3,7 +3,9 @@ Created 2/24/2022
 @author: Ralph Miller
          Nils Brown
 """
+import sys
 import re
+import unicodedata
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from dbsetup import createMenuDB, addMenuItem, findMenuItem
@@ -23,11 +25,14 @@ meal = menuTable.findAll("tr")                              # Finds each seperat
 for meal in menuTable:                                      # For each item in the meal table, strip empty text
     text = meal.text.strip()                                # and save the menu item
     meal.string = re.sub(r"[\n][\W]+[^\w]", "\n", text)
-print(meal.text)                                            # print out menu items
+#print(meal.text)                                            # print out menu items
 
 # split by newline to get each line
-arr = repr(meal.txt).split("\n")
+#remove \xa0 from string
+cleaned = unicodedata.normalize("NFKD", meal.text)
+arr = cleaned.split("\n")
 print(arr)
+sys.exit()
 # parse the list line by line and add to database
 mealtime = ""
 for i in arr:
