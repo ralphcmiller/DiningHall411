@@ -31,8 +31,6 @@ for meal in menuTable:                                      # For each item in t
 #remove \xa0 from string
 cleaned = unicodedata.normalize("NFKD", meal.text)
 arr = cleaned.split("\n")
-print(arr)
-sys.exit()
 # parse the list line by line and add to database
 mealtime = ""
 for i in arr:
@@ -41,14 +39,21 @@ for i in arr:
         continue
 
     # get the meal time (bfast, lunch, etc)
+    # these are the headers, so they can be excluded from database addition
+    # they will only change when a new header is reached
     if i == "Breakfast":
         mealtime = "Breakfast"
+        continue
     if i == "Lunch":
         mealtime = "Lunch"
+        continue
     if i == "Dinner":
         mealtime = "Dinner"
+        continue
     if i == "Late Night":
         mealtime = "Late Night"
+        continue
 
     #  if at this point, add to the database
-    addMenuItem("1/1/2022", "college910", i, mealtime)
+    foodname = i[:-1].lower()
+    addMenuItem("1/1/2022", "college910", foodname, mealtime)

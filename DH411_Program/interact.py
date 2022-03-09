@@ -33,12 +33,14 @@ for i in splitone:
         food = temp[-1]
 
 #Query Database
-query = findMenuItem(location, date, food)
+query = findMenuItem(date, location, food)
 
 #clean query and respond
 #if a specific food is specified print a single message with where it is
 #otherwise, loop through all the menu items for the requested date, and
 #print the meal time (lunch, dinner, etc) followed by the food name.
+if query == []:
+    print("Nothing found for your request")
 if food:
     for i in query:
         print("{} is at {} on {}".format(i[0],i[1],i[2]))
