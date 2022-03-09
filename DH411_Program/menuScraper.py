@@ -56,4 +56,4 @@ for i in arr:
 
     #  if at this point, add to the database
     foodname = i[:-1].lower()
-    addMenuItem("1/1/2022", "college910", foodname, mealtime)
+    addMenuItem("college910", foodname, mealtime)

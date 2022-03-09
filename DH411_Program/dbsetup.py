@@ -4,11 +4,11 @@ def createMenuDB():
     connection = sqlite3.connect('DHmenus.db')
     cursor = connection.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS DiningHallMenus
-                  (Date TEXT, DiningHall TEXT, MealName TEXT, MealTime TEXT)''')
+                  (DiningHall TEXT, MealName TEXT, MealTime TEXT)''')
     connection.commit()
     connection.close()
 
-def addMenuItem(Date, DiningHall, MealName, MealTime):
+def addMenuItem(DiningHall, MealName, MealTime):
     #try to connect to database
     #if it doesnt connect create the database
 
@@ -16,25 +16,30 @@ def addMenuItem(Date, DiningHall, MealName, MealTime):
     connection = sqlite3.connect('DHmenus.db')
 
     #Generate SQL Query and insert Data
-    sql = f''' INSERT INTO DiningHallMenus(Date, DiningHall, MealName, MealTime)
-                  VALUES(?,?,?,?) '''
-    params = (Date,DiningHall,MealName,MealTime)
+    sql = ''' INSERT INTO DiningHallMenus(DiningHall, MealName, MealTime)
+                  VALUES(?,?,?) '''
+    params = (DiningHall,MealName,MealTime)
     cur = connection.cursor()
     cur.execute(sql, params)
     connection.commit()
     connection.close()
 
-def findMenuItem(Date, DiningHall, MealName):
+def findMenuItem(DiningHall, MealName):
     #generates SQL for Date, Dining Hall Location, and optional specific meal
     connection = sqlite3.connect('DHmenus.db')
     if MealName:
-        sql = f'''SELECT * from DiningHallMenus 
-            WHERE Date = ? AND DiningHall = ? AND MealName = ?'''
-        params = (Date, DiningHall, MealName)
+        if not DiningHall:
+            sql = '''SELECT * from DiningHallMenus 
+                    WHERE MealName = ?'''
+            params = (MealName,)
+        else:
+            sql = '''SELECT * from DiningHallMenus 
+                WHERE DiningHall = ? AND MealName = ?'''
+            params = (DiningHall, MealName)
     else:
-        sql = f'''SELECT * from DiningHallMenus 
-            WHERE Date = ? AND DiningHall = ?'''
-        params = (Date, DiningHall)
+        sql = '''SELECT * from DiningHallMenus 
+            WHERE DiningHall = ?'''
+        params = (DiningHall,)
     cur = connection.cursor()
     cur.execute(sql, params)
     return(cur.fetchall())
