@@ -2,7 +2,6 @@
 from dbsetup import createMenuDB, addMenuItem, findMenuItem
 
 print("Welcome to Dining Hall 411!")
-
 response = input("""Respond with one or both of the following options:
 -Location <RachelCarson, PorterKresge, CrownMerrill, CowellStevenson, College910>
 -Food <Name of Specific Meal>\n""")
