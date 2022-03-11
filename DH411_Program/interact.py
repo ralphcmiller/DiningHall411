@@ -1,3 +1,12 @@
+"""
+Created 3/6/2022
+@author: Ralph Miller
+         Nils Brown
+
+         Driver program for DiningHall 411 Demo
+         
+"""
+
 # Proof of concept for the dining hall 411 text program
 from dbsetup import createMenuDB, addMenuItem, findMenuItem
 from menuScraper import webScrape
