@@ -25,8 +25,18 @@ def webScrape(college):
     else:
         print("failed")
 
+    print("Scraping " + college +"...") # Debug statement
+
+
     # Uses headless browser to grab HTML of specific DH menu #
-    driver = webdriver.Chrome()
+
+    # Runs headless browser without chrome popping up
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('window-size=1920x1080')
+    options.add_argument("disable-gpu")
+    driver = webdriver.Chrome(chrome_options=options)
+
     driver.get('https://nutrition.sa.ucsc.edu/')
     driver.find_element_by_link_text(linkclick).click()
     pageSource = driver.page_source
@@ -34,13 +44,13 @@ def webScrape(college):
     driver.close()
 
     # Parses HTML with bs4 and find all menu items #
-    menuTable = soup.find('table',  {'bordercolor': '#CCC'})   # Finds meal table
+    menuTable = soup.find('table',  {'bordercolor': '#CCC'})    # Finds meal table
     meal = menuTable.findAll("tr")                              # Finds each seperate meal table (Bfast, Lunch, ect)
 
     for meal in menuTable:                                      # For each item in the meal table, strip empty text
         text = meal.text.strip()                                # and save the menu item
         meal.string = re.sub(r"[\n][\W]+[^\w]", "\n", text)
-    ##print(meal.text)                                            # print out menu items
+    #print(meal.text)                                           # print out menu items
 
     # split by newline to get each line
     #remove \xa0 from string
