@@ -11,8 +11,13 @@ Created 3/6/2022
 from dbsetup import createMenuDB, addMenuItem, findMenuItem
 from menuScraper import webScrape
 from setup import startupScript
+import os
+
 
 # On startup run webscraper and install any libraries needed
+
+if os.path.exists("DHmenus.db"):
+    os.remove("DHmenus.db")
 
 startupScript()
 college_names = ["College910", "CowellStevenson", "CrownMerrill", "PorterKresge"]
@@ -28,6 +33,8 @@ while True:
     response = input("""Respond with one or both of the following options or [Q] to quit:
     -Location <RachelCarson, PorterKresge, CrownMerrill, CowellStevenson, College910>
     -Food <Name of Specific Meal>\n""")
+
+    print() # add newline for nice-ness
 
     if response.upper() == "Q":
         print("Bye <3")
