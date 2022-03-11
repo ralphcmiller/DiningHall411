@@ -13,7 +13,6 @@ from dbsetup import createMenuDB, addMenuItem, findMenuItem
 def webScrape(college):
 
     # Convert var college to link string
-    linkclick = ""
     college = college.lower()
     if college == "college910":
         linkclick = "College Nine/John R. Lewis Dining Hall"
@@ -23,6 +22,8 @@ def webScrape(college):
         linkclick = "Crown/Merrill Dining Hall"
     elif college == "porterkresge":
         linkclick = "Porter/Kresge Dining Hall"
+    else:
+        print("failed")
 
     # Uses headless browser to grab HTML of specific DH menu #
     driver = webdriver.Chrome()
@@ -39,7 +40,7 @@ def webScrape(college):
     for meal in menuTable:                                      # For each item in the meal table, strip empty text
         text = meal.text.strip()                                # and save the menu item
         meal.string = re.sub(r"[\n][\W]+[^\w]", "\n", text)
-    #print(meal.text)                                            # print out menu items
+    ##print(meal.text)                                            # print out menu items
 
     # split by newline to get each line
     #remove \xa0 from string
@@ -70,4 +71,4 @@ def webScrape(college):
 
         #  if at this point, add to the database
         foodname = i[:-1].lower()
-        addMenuItem("college910", foodname, mealtime)
+        addMenuItem(college, foodname, mealtime)
